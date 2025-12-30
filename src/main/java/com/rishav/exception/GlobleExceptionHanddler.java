@@ -20,4 +20,24 @@ public class GlobleExceptionHanddler extends ResponseEntityExceptionHandler{
 		
 		return new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(MemberAlreadyExistsException.class)
+	public ResponseEntity<ResponseStructure<String>> handdleMemberAlreadyExixtsException(MemberAlreadyExistsException e) {
+		ResponseStructure<String> response=new ResponseStructure<String>();
+		response.setStatus(HttpStatus.NOT_FOUND.value());
+		response.setMessage("Member already exists!!!");
+		response.setData(e.getMessage());
+		
+		return new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(MemberIdNotFoundException.class)
+	public ResponseEntity<ResponseStructure<String>> handdleMemberIdNotFoundException(MemberIdNotFoundException e) {
+		ResponseStructure<String> response=new ResponseStructure<String>();
+		response.setStatus(HttpStatus.NOT_FOUND.value());
+		response.setMessage("Member id not available");
+		response.setData(e.getMessage());
+		
+		return new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.NOT_FOUND);
+	}
 }

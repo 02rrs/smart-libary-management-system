@@ -40,4 +40,14 @@ public class GlobleExceptionHanddler extends ResponseEntityExceptionHandler{
 		
 		return new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(MemberInactiveException.class)
+	public ResponseEntity<ResponseStructure<String>> handdleMemberInactiveException(MemberInactiveException e) {
+		ResponseStructure<String> response=new ResponseStructure<String>();
+		response.setStatus(HttpStatus.NOT_FOUND.value());
+		response.setMessage("Member is Inactive!!!");
+		response.setData(e.getMessage());
+		
+		return new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.NOT_FOUND);
+	}
 }

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import com.rishav.enums.BorrowStatus;
 
 public class BorrowRecordDto {
+	private Integer id;
 	private LocalDateTime borrowDate;
 	private LocalDateTime dueDate;
 	private LocalDateTime returnDate;
@@ -15,6 +16,12 @@ public class BorrowRecordDto {
 	private MemberDto memberDto;
 	
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public LocalDateTime getBorrowDate() {
 		return borrowDate;
 	}
